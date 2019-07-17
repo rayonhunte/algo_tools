@@ -37,3 +37,11 @@ const fcCount = (str1, str2) => {
 
 
 fcCount('looc', 'cool') /*?*/
+
+
+
+let check ='cool' //?
+
+for(let val in check){
+    check[val] //?
+}
