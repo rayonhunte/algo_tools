@@ -14,7 +14,10 @@ selSort2 = (arr) => {
                 minVal = j //?
             }   
         }
-        swap(arr, i, minVal)
+        if (i !== minVal) {
+            swap(arr, i, minVal)
+        }
+        
     }
     return arr
 }
