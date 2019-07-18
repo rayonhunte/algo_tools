@@ -38,7 +38,20 @@ const yoRec = (num) => {
 
 yoRec(4) //?
 
+const power = (num1, num2) => {
+    sum = 0;
+    const reSum = () => {
+        if (num2 === 0 ) return;
+        sum += num1 * num1; //?
+        --num2
+        reSum()
+    }
+    reSum()
+    return sum; 
+}
 
+
+power(2,2) //?
 
 
 
