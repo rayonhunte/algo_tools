@@ -21,3 +21,5 @@ countChar = (someString) => {
 
 
 countChar('i like Cool cakes')
+
+//  reverse strings
