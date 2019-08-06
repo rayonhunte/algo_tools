@@ -65,3 +65,18 @@ function hourGlass(arr) {
 }
 
 console.log(hourGlass(input))
+
+
+const someSquar = (array) => {
+    array.forEach(
+        (x) =>  x
+    )
+}
+
+someSquar(
+    [
+    [1,1,1,1,1]
+    [1,1,1,1,1]
+    [1,1,1,1,1]
+    ]
+    )
