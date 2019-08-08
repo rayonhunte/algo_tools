@@ -91,3 +91,27 @@ const letterChange = (str) => {
 }
 
 letterChange('Hello There')
+
+
+
+const ones = (n) => {
+    let sumOne = 0;
+    let initN = n
+    let lastMax = 0;
+    let sumMax = 1;
+    const helper= (initN) => {
+        if(initN > sumMax) {
+            lastMax = sumMax
+            sumMax = sumMax * 2
+            helper(initN)
+        } else {
+            sumOne += 1 //?
+            initN = initN - lastMax; //?
+            sumMax = 1 
+        }
+    }
+    helper(initN)
+    return sumOne;
+}
+
+ones(112) //?
