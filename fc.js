@@ -77,8 +77,15 @@ const sameFrequency = (str1, str2) => {
 sameFrequency(182,281) //?
 
 
-const areThereDuplicates = (str) => {
-    arguments[0] //?
+const areThereDuplicates = (...str) => {
+    const obj1 = {}
+    let dup = false
+    str.forEach(
+        (e) => {
+            if(!obj1[e]) {obj1[e] = 1} else {dup = true;}
+        }
+    )
+    return dup
 } 
 
-areThereDuplicates(1,2,3,4)
+areThereDuplicates(1,2,3,4,4) //?
