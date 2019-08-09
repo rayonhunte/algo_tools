@@ -45,3 +45,40 @@ let check ='cool' //?
 for(let val in check){
     check[val] //?
 }
+
+
+
+const sameFrequency = (str1, str2) => {
+    let isSame = true;
+    const obj1 = {}
+    const obj2 = {}
+    if(str1.length !== str2.length) {return isSame = false}
+    String(str1).split('').forEach(
+        (e) => {
+            if(!obj1[e]) {obj1[e] = 1} else {obj1[e] ++}
+        }
+    )
+    String(str2).split('').forEach(
+        (e) => {
+            if(!obj2[e]) {obj2[e] = 1} else {obj2[e] ++}     
+        }
+    )
+    obj1
+    obj2
+    for(let val in obj1) {
+        if (obj1[val] !== obj2[val]) {
+            isSame = false
+        } //?
+
+    }
+    return isSame
+}
+
+sameFrequency(182,281) //?
+
+
+const areThereDuplicates = (str) => {
+    arguments[0] //?
+} 
+
+areThereDuplicates(1,2,3,4)

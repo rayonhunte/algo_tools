@@ -94,24 +94,23 @@ letterChange('Hello There')
 
 
 
-const ones = (n) => {
-    let sumOne = 0;
-    let initN = n
-    let lastMax = 0;
-    let sumMax = 1;
-    const helper= (initN) => {
-        if(initN > sumMax) {
-            lastMax = sumMax
-            sumMax = sumMax * 2
-            helper(initN)
+const base2 = (524275).toString(2)
+base2
+let count = 0;
+let maxCount = 0;
+base2.split('').forEach(
+    (bit) => {
+        bit
+        if (bit === '1') {
+            count = count + 1 //?
         } else {
-            sumOne += 1 //?
-            initN = initN - lastMax; //?
-            sumMax = 1 
+            if (count > maxCount) {maxCount = count}
+            count = 0
         }
     }
-    helper(initN)
-    return sumOne;
-}
+)
+maxCount
+count
+if (count > maxCount) {maxCount = count}
 
-ones(112) //?
+maxCount 
