@@ -4,13 +4,18 @@ swFunc = (arr, num) => {
     let tempMax = 0;
     let maxSum = 0;
     if (arr.length < num) {return false}
+    
     for(i=0; i<num; i++) {
+        arr[i] //?
         tempMax = arr[i] + tempMax
+        tempMax
     }
     maxSum = tempMax
+    maxSum
     
     for(i=num; i<arr.length; i++){
-        maxSum = maxSum - arr[i - num] + arr[i]
+        arr[i] //?
+        maxSum = maxSum - arr[i - num] + arr[i] //?
         if(maxSum > tempMax) tempMax = maxSum
     }
     return tempMax
@@ -18,3 +23,57 @@ swFunc = (arr, num) => {
 
 
 swFunc(arr, num) /*?*/
+
+const maxSubarraySum = (arr, num) => {
+ let max =0;
+ let temp = 0;
+ if(arr.length < num) return null
+ 
+ for(let i=0; i<num; i++) {
+     max += arr[i]
+ }
+
+ temp = max;
+ temp
+
+ for(let i = num; i < arr.length; i++){
+     temp = temp - arr[i -num] + arr[i]
+     max = Math.max(max, temp) //?
+ }
+ return max
+} 
+
+maxSubarraySum([], 2) //?
+maxSubarraySum([100,200,300,400], 2) //?
+maxSubarraySum([1,4,2,10,23,3,1,0,20], 4) //?
+maxSubarraySum([2,3], 3) //?
+maxSubarraySum([3,-2,7,-4,1,-1,4,-2,1], 2) //?
+maxSubarraySum([-3,4,0,-2,6,-1], 2) //?
+
+
+
+const minSubArrayLen = (arr, num) => { 
+    let maxSum = 0;
+    let tempCount = 1;
+    let step = 1;
+    if(arr.length <=0) return 0
+    
+    
+    for(let i=0;i<arr.length;i++) {
+        if(arr[i] > num) return 1
+         for(let j=1 ;j<arr.length;j++){ 
+            arr[i] //?
+            arr[j] //?
+            maxSum += arr[i] + arr[j]
+             if(maxSum > num) {
+                maxSum
+                tempCount ++
+                tempCount 
+                break
+             } 
+        }
+
+}
+}
+
+minSubArrayLen([2,3,1,2,4,3], 7)
