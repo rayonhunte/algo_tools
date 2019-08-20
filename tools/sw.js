@@ -82,7 +82,8 @@ maxSubarraySum([-3, 4, 0, -2, 6, -1], 2) //?
 // }
 
 const minSubArrayLen = (arr, num) => {
-   for(let i=0; i<arr.length; i++) {
+   let set = 0;
+    for(let i=0; i<arr.length; i++) {
        arr[i] //?
        let slide = arr[i]
        let count = 1;
@@ -91,14 +92,15 @@ const minSubArrayLen = (arr, num) => {
            if(slide > num) break
            count ++ //?           
        }
+       set = count;
    }
-    return 10
+    return set
 
 }
 
 
 minSubArrayLen([2, 3, 1, 2, 4, 3], 7) //?
 // minSubArrayLen([2,1,6,5,4], 9) //?
-// minSubArrayLen([1,4,16,22,5,7,8,9,10], 95) //?
+minSubArrayLen([1,4,16,22,5,7,8,9,10], 95) //?
 // minSubArrayLen([4,3,3,8,1,2,3], 11) //?
 // make sure
