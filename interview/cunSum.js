@@ -56,8 +56,17 @@ const zero = [0,0,1]
 
 const moveZero = (nums) => {
     let count = 0
-    while(nums.length >= 1) {
-        nums //?
+    let length = nums.length
+    while( length >= 1) {
+        if(nums[count] === 0) {
+            nums[count] //?
+            nums.splice(count, 1)
+            nums.push(0)
+        } else {
+            nums.length //?
+        }
+        count++ //?
+        length-- //?
     } 
 
     return nums //?
