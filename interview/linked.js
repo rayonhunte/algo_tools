@@ -42,25 +42,36 @@ class LinkedList {
       let stop = this.head
       let count = 0
       while (stop) {
-          if(count === index) {  
-            console.log("i break")
-            break
-          }
+          if(count === index) { break}
           stop = stop.next
           count++ //? 
       }
-      stop
-      newNode.next = stop.next
+      let pointHolder = stop.next 
       stop.next = newNode
+      newNode.next = pointHolder
       this.length += 1
       return this;
+  }
+
+  remove(index) {
+        let count = 0;
+        let lead = this.head 
+        while (count !== index -1) {
+            lead = lead.next            
+            count++
+        }   
+        const unwanted = lead.next
+        lead.next = unwanted.next
+        this.length --
+    
   }
 
   print() {
     let stop = this.head
     const array = []
     while(stop){
-        array.push({value:stop.value, obj: stop.next})
+        //array.push({value:stop.value, obj: stop.next})
+        array.push(stop.value)
         stop = stop.next
     }
     return array
@@ -74,6 +85,7 @@ newLinkedList.append(6);
 newLinkedList.append(7)
 newLinkedList.prepend(8)
 newLinkedList.prepend(9)
-newLinkedList.insert(0, 11)
+newLinkedList.insert(1, 11)
+newLinkedList.remove(2)
 newLinkedList.print() //?
 console.log(newLinkedList);
