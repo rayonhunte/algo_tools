@@ -22,31 +22,25 @@ function mergeRanges(meetings) {
     
     
     const sortMeetings = meetings.sort(
-        (a,b) => {return a.startTime - b.endTime}
+        (a,b) => {return a.startTime - b.startTime}
     )
-    const someArray = []
-    for(let i=0; i< sortMeetings.length-1; i++){
-        if (sortMeetings[i].endTime >= sortMeetings[i+1].startTime ) {
-            if (sortMeetings[i].startTime > sortMeetings[i+1].startTime) {
-                someArray.push(
-                    { startTime: sortMeetings[i+1].startTime,  endTime: sortMeetings[i+1].endTime}
-               )        
-            } else {
-                someArray.push(
-                    { startTime: sortMeetings[i].startTime,  endTime: sortMeetings[i+1].endTime}
-               )  
-            } 
+    const mergeMeetings = [sortMeetings[0]]
 
+    mergeMeetings
+    for (let i=1; i< sortMeetings.length; i++) {
+        const currentMeeting = sortMeetings[i]
+        currentMeeting
+        const lastMeeting = mergeMeetings[mergeMeetings.length -1]
+        lastMeeting
+        if(currentMeeting.startTime <= lastMeeting.endTime) {
+            lastMeeting.endTime = Math.max(lastMeeting.endTime, currentMeeting.endTime)
         } else {
-            // if(sortMeetings[i].endTime < sortMeetings[i+1].startTime) {
-            //     someArray.push(
-            //         sortMeetings[i]
-            //     )
-            // }
+            mergeMeetings.push(currentMeeting)
         }
-       }
+    }
 
-    return someArray;
+
+    return mergeMeetings;
 }
 
 
