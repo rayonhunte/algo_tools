@@ -26,12 +26,12 @@ function mergeRanges(meetings) {
     )
     const mergeMeetings = [sortMeetings[0]]
 
-    mergeMeetings
+    //mergeMeetings
     for (let i=1; i< sortMeetings.length; i++) {
         const currentMeeting = sortMeetings[i]
-        currentMeeting
+        //currentMeeting
         const lastMeeting = mergeMeetings[mergeMeetings.length -1]
-        lastMeeting
+        //lastMeeting
         if(currentMeeting.startTime <= lastMeeting.endTime) {
             lastMeeting.endTime = Math.max(lastMeeting.endTime, currentMeeting.endTime)
         } else {
