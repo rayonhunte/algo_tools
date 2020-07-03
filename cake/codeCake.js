@@ -1,29 +1,31 @@
-// const message = ['c', 'a', 'k', 'e', ' ',
-//     'p', 'o', 'u', 'n', 'd', ' ',
-//     's', 't', 'e', 'a', 'l'
-// ];
+let message = 'thief cake'.split('')
+// let message = 'vault'.split('');
 
-const message = 'vault'.split('');
-message
+// const message = [ 'c', 'a', 'k', 'e', ' ',
+// 'p', 'o', 'u', 'n', 'd', ' ',
+// 's', 't', 'e', 'a', 'l' ];
 
-
-function reverseWords(message) {
-
-    // Decode the message by reversing the words
-    if (message.length === 0) {return []}
-    start = 0
-    end = message.length-1 //?
-    while (end < start) {
-        temp1 = message[start] //?
-        temp2 = message[end] //?
-        message[end] = temp1
-        message[start] = temp2
-        start++
-        end--
+function reverseChar  (message, left, right)  {
+    while (left < right) {
+        const temp = message[left];
+        message[left] = message[right];
+        message[right] = temp;
+        left++;
+        right--;
     }
-    return message
+}
+
+function reverseWords (message) {    
+    reverseChar(message, 0, message.length -1)
+    let currentWordStartIndex = 0;
+    for (let i = 0; i <= message.length; i++) {
+        if(i === message.length || message[i] === ' ') {
+            reverseChar(message, currentWordStartIndex, i - 1)
+            currentWordStartIndex = i +1;
+        }
+    }
+
+    return message.join('')
 }
 
 reverseWords(message) //?
-
-message.join('') //?
