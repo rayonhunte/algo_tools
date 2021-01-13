@@ -40,6 +40,6 @@ const maxRainTwo = (nums) => {
 }
 
 
-maxRain(nums) //?
+// maxRain(nums) //?
 
-maxRainTwo(nums) //?
+// maxRainTwo(nums) //?
