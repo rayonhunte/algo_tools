@@ -1,6 +1,5 @@
 const nums = [0,1,0,2,1,0,3,1,0,1,2]
 
-
 const maxRain = (nums) => {
     max = 0
     for(i=0; i< nums.length; i++) {
@@ -19,4 +18,28 @@ const maxRain = (nums) => {
     return max
 }
 
+const maxRainTwo = (nums) => {
+    // init the max rain
+    max = 0
+    // init left and right max
+    maxR = 0
+    maxL = 0
+    // init pointers
+    p1 = 0
+    p2 = nums.length -1
+    while(p1 < p2) {
+        if(nums[p1] >= maxL) {
+            max = max + (maxL - nums[p1])
+            maxL = nums[p1]
+            p1++ 
+        }
+
+    }
+
+    return max
+}
+
+
 maxRain(nums) //?
+
+maxRainTwo(nums) //?

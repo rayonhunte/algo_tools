@@ -13,13 +13,19 @@ Notice that you may not slant the container.
 const heights = [2,3,4,5,18,17,6] 
 
 const getMaxWater = function (heights) {
+  // init values to track
   let p1=0, p2= heights.length -1, maxArea = 0
-
+  // while the start pointer is less then the end pointer
   while(p1 < p2) {
-     const height = Math.min(heights[p1], heights[p2]);
+     // get  the min hight between two pointers
+     const height = Math.min(heights[p1], heights[p2]); 
+     // get the distance between between two pointers using the index
      const width = p2 - p1
+     // cal the area with h * w
      const area = height * width
+     // if area is larger then current area update maxArea
      maxArea = Math.max(maxArea, area)
+     // ++ or -- index based on less height
      if(heights[p1] <= heights[p2]) {
        p1++;
      } else {
