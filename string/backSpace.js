@@ -2,18 +2,6 @@
 // does case matter yes
 
 
-//const array = "j##xfix"
-//const arrayTwo = "j##xfix"
-
-//array = "ab#c"
-//arrayTwo = "ad#c"
-
-array = "ab##"
-arrayTwo = "c#d#"
- 
-// array = "xywrrmp"
-// arrayTwo = "xywrrmu#p"
-
 
 // const makeString = (inString) => {
 //     const newString = []
@@ -36,30 +24,33 @@ arrayTwo = "c#d#"
 //backspaceCompare(array, arrayTwo) //?
 
 
+
+
+//const array = "j##xfix"
+//const arrayTwo = "j##xfix"
+// array = "ab#c"
+// arrayTwo = "ad#c"
+// array = "ab##"
+//arrayTwo = "c#d#" 
+// array = "xywrrmp"
+// arrayTwo = "xywrrmu#p"
+// array = "bxj##tw"
+// arrayTwo = "bxo#j##tw"
+
+array = '#j'
+arrayTwo = '#j'
+
+
+"bxo#j##tw"
+
 const backspaceCompare = (s1, s2) => {
     const a1 = s1.split('') //?
-    const a2 = s2.split('') //?    
-    remove = 0
-    move = a2.length -1
+    const a2 = s2.split('') //?
     let match = true
+    right = 0
     for(i = a1.length -1; i >= 0; i--) {
-       if(a1[i] === '#') { remove ++} 
-       else {   
-           i = i
-           if (a2[move] === '#') {
-               i = i + 1;  
-               move = move - 2
-            } else {
-             a1[i] //?
-             a2[move] //?
-            if(a1[i] !== a2[move]) {match = false} else {move = move -1}  
-           }
-       } 
-
+       
     }
-    remove
     return match
 }
-
-
 backspaceCompare(array, arrayTwo) //?
