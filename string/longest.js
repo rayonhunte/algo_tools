@@ -1,29 +1,54 @@
-one = "abccabb";
-two = "ccccccc";
-three = "abcbda";
+one = "abcabcbb";
+two = "bbbbb";
+three = "pwwkew";
+four = 'pwwkew';
+five = "au"
+six = "dvdf"
 
 
-
-
-const longest = (s) => {
+const lengthOfLongestSubstring = (s) => {
     if(s.length === 0) {return 0}
+    if(s.length === 1) {return 1} 
     let count = 0
     let maxCount = 0
-    let repeat = ''
+    let repeat = []
 
-    for (i=0; i < s.length -1; i++){
+    for (i=0; i < s.length; i++){
         s[i] //?
-        if(i === 0) {repeat = s[i]; count = count + 1} else {
-            if(repeat !== s[i]) {
-                count = count + 1
+        if(repeat.length === 0) {
+            repeat.push(s[i]); count = count + 1
+        } else {
+            s[i] //?
+            if(!repeat.includes(s[i])) {
+                count ++
+                repeat.push(s[i])
             } else {
-                if(count > maxCount) { maxCount = count; count = 0}
+                count 
+                repeat = [s[i]]
+                count = 1
             }
+            if(maxCount < count) {maxCount = count} 
+            repeat
         }
-        maxCount
     }
+    return maxCount
 }
 
 
+lengthOfLongestSubstring(six) //?
+// lengthOfLongestSubstring(five) //?
 
-longest(one) //?
+// lengthOfLongestSubstring(one)
+
+// lengthOfLongestSubstring(two) //?
+
+// lengthOfLongestSubstring(three) //?
+
+// lengthOfLongestSubstring(four) //?
+
+// h = ['a','v']
+// if(h.includes('v')) {
+//     h 
+// } else {
+//     h
+// }
