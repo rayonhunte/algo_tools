@@ -70,24 +70,29 @@ const side = (s) => {
     maxCount = 0
     p1 = 0
     p2 = 1
-    sum = [s[p1]]
-    while(p2 < s.length) {
-        sum
-        if(!sum.includes(s[p2])) {
-            sum.push(s[p2])
+    count = 1;
+    window = {}
+    window[s[p1]] = count
+    while (p2 <= s.length -1 ) {
+        if(!window[s[p2]]) {
+            window[s[p2]] = count
+            count ++
+            p2++
         } else {
             p1++
             p2 = p1 + 1
-            sum = [s[p1]]
+            window = {}
+            window[s[p1]] = count
+            count = 1
         }
-        if(maxCount < sum.length) {maxCount = sum.length}
+        if(maxCount < count) {maxCount = count}
+        
     }
     return maxCount
-
 }
 
 "anviaj"
-side(three) //?
+side(seven) //?
 
 // lengthOfLongestSubstring(one) //?
 
