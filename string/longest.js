@@ -4,51 +4,91 @@ three = "pwwkew";
 four = 'pwwkew';
 five = "au"
 six = "dvdf"
+seven = "anviaj"
 
+
+// const lengthOfLongestSubstring = (s) => {
+//     if(s.length === 0) {return 0}
+//     if(s.length === 1) {return 1} 
+//     let count = 0
+//     let maxCount = 0
+//     let repeat = []
+
+//     for (i=0; i < s.length; i++){
+//         s[i] //?
+//         if(repeat.length === 0) {
+//             repeat.push(s[i]); count = count + 1
+//         } else {
+//             s[i] //?
+//             if(!repeat.includes(s[i])) {
+//                 count ++
+//                 repeat.push(s[i])
+//             } else {
+//                 if (s[i] !== s[i -1]) {
+//                     repeat = [s[i-1]]
+//                     i--
+//                 } else {
+//                     repeat = [s[i]] 
+//                 }
+//                 count = 1
+//             }
+//             if(maxCount < count) {maxCount = count} 
+//             repeat
+//         }
+//     }
+//     return maxCount
+// }
+
+// force method
 
 const lengthOfLongestSubstring = (s) => {
-    if(s.length === 0) {return 0}
-    if(s.length === 1) {return 1} 
-    let count = 0
+    if(s.length <= 1) {return s.length}
     let maxCount = 0
     let repeat = []
-
-    for (i=0; i < s.length; i++){
-        s[i] //?
-        if(repeat.length === 0) {
-            repeat.push(s[i]); count = count + 1
+    rIndex = 0;
+    for (i = 0; i < s.length; i++) {
+        if (repeat.length === 0) {
+            repeat.push(s[i]);
         } else {
-            s[i] //?
             if(!repeat.includes(s[i])) {
-                count ++
                 repeat.push(s[i])
             } else {
-                count 
+                rIndex++
+                i = rIndex
                 repeat = [s[i]]
-                count = 1
             }
-            if(maxCount < count) {maxCount = count} 
-            repeat
+            if(maxCount < repeat.length) {maxCount = repeat.length}
         }
     }
     return maxCount
 }
 
+// sliding window
 
-lengthOfLongestSubstring(six) //?
-// lengthOfLongestSubstring(five) //?
+const side = (s) => {
+    if(s.length <= 1) {return s.length}
+    maxCount = 0
+    p1 = 0
+    p2 = 1
+    sum = [s[p1]]
+    while(p2 < s.length) {
+        sum
+        if(!sum.includes(s[p2])) {
+            sum.push(s[p2])
+        } else {
+            p1++
+            p2 = p1 + 1
+            sum = [s[p1]]
+        }
+        if(maxCount < sum.length) {maxCount = sum.length}
+    }
+    return maxCount
 
-// lengthOfLongestSubstring(one)
+}
 
-// lengthOfLongestSubstring(two) //?
+"anviaj"
+side(three) //?
 
-// lengthOfLongestSubstring(three) //?
+// lengthOfLongestSubstring(one) //?
 
-// lengthOfLongestSubstring(four) //?
 
-// h = ['a','v']
-// if(h.includes('v')) {
-//     h 
-// } else {
-//     h
-// }
