@@ -21,13 +21,14 @@ const lengthOfLongestSubstring = (s) => {
     while(p2 < s.length) {
         if(!w[s[p2]]) {
             console.log(w)
+            s[p2] //?
             w[s[p2]] = p2
             p2++
         } else {
+            w
             w = {}
             p1++
             w[s[p1]] = p1
-            w
         }
         
         if ((Object.keys(w).length) > max) { max = Object.keys(w).length} 
