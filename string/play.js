@@ -1,40 +1,43 @@
 one = "abcabcbb";
 two = "bbbbb";
 three = "pwwkew";
-four = 'bbtablud';
+four = "bbtablud";
 five = "au"
 six = "dvdf"
 seven = "anviaj"
+eight = "tmmzuxt"
 
 
 
 
 const lengthOfLongestSubstring = (s) => {
     if(s.length <= 1) {return s.length}
-    let p1 = 0
-    let p2 = 1
+    p1 = 0
+    p2 = 1
     max = 0
-    let w = {}
-    w[s[p1]] = p1
-    count = 0
-    
+    let hash = {}; hash[s[p1]] = p1
     while(p2 < s.length) {
-        if(!w[s[p2]]) {
-            console.log(w)
-            s[p2] //?
-            w[s[p2]] = p2
+       if( !(hash[s[p2]]) ) {
+            hash[s[p2]] = p2
+            if(s.length > p2) {p2++}
+       } else { 
+            if (s[p2+1]) {
+                rIndex = hash[s[p2]] + 1
+                hash = {}
+                hash[s[rIndex]] = rIndex
+                p2 = rIndex
+            }
             p2++
-        } else {
-            w
-            w = {}
-            p1++
-            w[s[p1]] = p1
-        }
-        
-        if ((Object.keys(w).length) > max) { max = Object.keys(w).length} 
-    }
-
+            
+       }
+       length = Object.keys(hash).length
+       if( length> max) {max = length}
+    } 
     return max
+     
 }
 
-lengthOfLongestSubstring(four) //?
+lengthOfLongestSubstring(one) //?
+
+
+
