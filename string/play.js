@@ -8,66 +8,59 @@ let five = "au"
 let six = "dvdf"
 let seven = "anviaj"
 let eight = "tmmzuxt"
+let nine = "qrsvbspk"
 
 
-
-
-// const lengthOfLongestSubstring = (s) => {
-//     if(s.length <= 1) {return s.length}
-//     p1 = 0
-//     p2 = 1
-//     max = 0
-//     let hash = {}; hash[s[p1]] = p1
-//     while(p2 < s.length) {
-//        if( !(hash[s[p2]]) ) {
-//             hash[s[p2]] = p2
-//             if(s.length > p2) {p2++}
-//        } else { 
-//             if (s[p2+1]) {
-//                 rIndex = hash[s[p2]] + 1
-//                 hash = {}
-//                 hash[s[rIndex]] = rIndex
-//                 p2 = rIndex
-//             }
-//             p2++
-            
-//        }
-//        length = Object.keys(hash).length
-//        if( length> max) {max = length}
-//     } 
-//     return max
-     
-// }
-"abcabcbb"
-"pwwkew"
-"bbtablud"
 
 const lengthOfLongestSubstring = (s) => {
-    if(s.length <= 1) {return s.length}
-    let max = 0
-    let p1 = 0
-    let p2 = 1
-    let seen = {}; seen[s[p1]] = p1
-
-    while(p2 < s.length) {
-       if( (seen[s[p2]])  ) {
-            p1++
-            seen = {};
-            p2 = p1 + 1
-       } else {
-            seen[s[p2]] = p2
-            p2++
-            seen
-            let cv = Object.keys(seen).length //?
-            if(max < cv) {max = cv}            
-       }
-    }
-    return max
+     if(s.length <= 1) {return s.length}
+     let i = 0
+     let j = 0
+     let max = 0 
+     let hash = []
+     while(j < s.length) {
+          if(hash.includes(s[j])){
+               hash.splice(0,1)
+               i++
+          } else {
+               hash.push(s[j])
+               let count = j - i + 1
+               if(max < count) {max = count}
+               j++
+          }
+     }
+     return max
 }
 
 
-
 lengthOfLongestSubstring(four) //?
+//lengthOfLongestSubstring(nine) //?
 
 
+
+
+const lengthOfLongestSubstringTwo = (s) => {
+     if(s.length <= 1) {return s.length}
+     let i = 0
+     let j = 0
+     let max = 0 
+     let hash = {}
+     while(j < s.length) {
+          if(s[j] in hash){
+               if(j > i) {
+                    i = hash[s[j]] + 1
+                    hash[s[j]] = j
+               }
+               j++
+          } else {
+               hash[s[j]] = j
+               let count = j -i +1
+               if(max < count) {max = count}
+               j++
+          }
+     }
+     return max
+}
+
+lengthOfLongestSubstringTwo(five) //?
 
