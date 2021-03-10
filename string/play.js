@@ -13,6 +13,8 @@ let s3 = "abcdefdba"
 let s4 = ""
 let s5 = "a"
 let s6 = "ab"
+let s7 = "aabcbcv"
+let s8 = "cbbcc"
 
 const isPalindrome = (s) => {
     let p1 = 0 //?
@@ -20,10 +22,8 @@ const isPalindrome = (s) => {
     let oe = s.length % 2 //?
     while(oe === 0? p1 < p2 : p1 !== p2) {
         if( s[p1] !== s[p2]) {
-            return [s[p1],s[p2]]
+            return [p1,p2]
         } else {
-            s[p1] //?
-            s[p2] //?
             p1++
             p2--
         }
@@ -32,26 +32,28 @@ const isPalindrome = (s) => {
     return true
 }
 
-const isPal = (s) => {
+const validPalindrome = (s) => {
     if(s.length <=2) {return true}
     let bs = s.replace(/[^a-z0-9]+/gi,"").toLowerCase()
-    bs
-    let remove = isPalindrome(bs) //?
+    let remove = isPalindrome(bs)
     if(remove !== true) {
-         let nbs = bs.replace(remove[0], '')
-         let nbs2 = bs.replace(remove[1], '')
-         nbs
-         nbs2
-         if (!isPalindrome(nbs)){
-          if (!isPalindrome(nbs2)){return false}
-          } 
+         let n = s.substring(0,remove[0])
+         let n2 = s.substring(0,remove[1])
+         n = n + s.substring(remove[0]+1, s.length);
+         n2 = n2 + s.substring(remove[1]+1, s.length);
+         let isn = typeof isPalindrome(n) === 'boolean'? true : false  
+         if(!isn){
+            let isn2 = typeof isPalindrome(n2) === 'boolean'? true : false
+            return isn2
+         } else {
+             return true
+         }
     }
-
     
     return true
 }
 
 //isPalindrome(s7) //?
 
-isPal(s3) //?
+validPalindrome(s8) //?
 
