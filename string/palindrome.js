@@ -38,8 +38,46 @@ const isPal = (s) => {
     if(s.length <=2) {return true}
 }
 
-//isPalindrome(s7) //?
+// isPalindrome(s7) //?
 
-isPal(s4) //?
+// isPal(s4) //?
 
 
+
+const isPalindrome_2 = (s) => {
+    let p1 = 0 
+    let p2 = s.length -1 
+    while(p1 < p2) {
+        if( s[p1] !== s[p2]) {
+            return [p1,p2]
+        } else {
+            p1++
+            p2--
+        }
+    }
+
+    return true
+}
+
+const validPalindrome = (s) => {
+    if(s.length <=2) {return true}
+    let bs = s.replace(/[^a-z0-9]+/gi,"").toLowerCase() /*?*/
+    let remove = isPalindrome(bs) /*?. */
+    if(remove !== true) {
+         let n = s.substring(0,remove[0])
+         let n2 = s.substring(0,remove[1])
+         n = n + s.substring(remove[0]+1, s.length);
+         n2 = n2 + s.substring(remove[1]+1, s.length);
+         let isn = typeof isPalindrome(n) === 'boolean'? true : false  
+         if(!isn){
+            let isn2 = typeof isPalindrome(n2) === 'boolean'? true : false
+            return isn2
+         } else {
+             return true
+         }
+    }
+    
+    return true
+}
+
+validPalindrome(s8)/*?. */
