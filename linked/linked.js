@@ -17,17 +17,29 @@ const list = {
 
 
 const revList = (list) => {
-    let curNode = list
-    let nextValue = null
-    while(curNode) {
-        curNode.value //?
-        if(!oldNode) {
+    let next = null
+    let pre = 'head' 
+    let cur  = list
+    count = 0
+    while(count < 1) {
+    if(pre === 'head'){
+        next = cur.next
+        next
+        cur.next = null
+        pre = next
+        pre.next = cur 
+        pre
+        cur
+     } else {
 
-        }
-        curNode = curNode.next
         
+     }
+     next
+     count++
     }
+
+    cur //?
 }
 
 
-revList(list)
+revList(list);
