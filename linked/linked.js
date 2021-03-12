@@ -17,28 +17,16 @@ const list = {
 
 
 const revList = (list) => {
-    let next = null
-    let pre = 'head' 
-    let cur  = list
-    count = 0
-    while(count < 1) {
-    if(pre === 'head'){
-        next = cur.next
-        next
-        cur.next = null
-        pre = next
-        pre.next = cur 
-        pre
-        cur
-     } else {
+   let pre = null
+   let current = list
+   while (current) {
+       let next = current.next
+       current.next = pre
+       pre = current
+       current = next 
+   }
 
-        
-     }
-     next
-     count++
-    }
-
-    cur //?
+    pre //?
 }
 
 
