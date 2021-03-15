@@ -21,9 +21,13 @@ const revList = (list) => {
    let current = list
    while (current) {
        let next = current.next
+       next
        current.next = pre
+       current
        pre = current
-       current = next 
+       pre
+       current = next
+       current 
    }
 
     pre //?
