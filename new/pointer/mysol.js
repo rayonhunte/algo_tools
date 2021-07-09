@@ -33,9 +33,19 @@ const arr = [-4,-3,-2,-1,0,1,2,3,4,5]
 
 const countUniqueValue = (arr2) => {
     if(arr2.length === 1 ) return 1
-    let start = arr2[0]
-    let end = arr2[1]
+    let start = 0
+    let count = 0;
+    while (start < arr2.length) {
+        if(arr2[start] !== arr2[start + 1]) {
+            count = count + 1
+        } 
+        start++
+    }
+    return count; 
 
 }
 
-const arr2 = [1,1,1,1,2]
+
+const arr2 = [1,2,3,4,4,7]
+
+countUniqueValue(arr2) //?
