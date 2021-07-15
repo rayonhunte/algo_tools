@@ -74,10 +74,22 @@ averagePair([-1,0,3,4,5,6], 4.1) //?
 averagePair([], 4) //?
 
 
-function isSubsequence() {
-    
-    return true
+function isSubsequence(arr1, arr2) {
+    let l = 0
+    let r = 0
+    while(r < arr2.length) {
+        if(arr1[l] === arr2[r]) {
+            if(l === arr1.length -1) return true
+            l++
+            r++
+        }
+        else {
+            r++
+        }
+    }
+    return false
 }
 
-isSubsequence('hello', 'hello world') //?
-isSubsequence('sing', 'sting') //?
+// isSubsequence('hello', 'hello world') //?
+// isSubsequence('sing', 'sting') //?
+isSubsequence('abc', 'acb') //?
