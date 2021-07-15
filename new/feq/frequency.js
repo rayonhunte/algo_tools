@@ -80,7 +80,47 @@ const validAnagram = (arr3, arr4) => {
 
 }
 
-const arr3 = "aaabbx"
-const arr4  = "xaaabb"
+//const arr3 = "aaabbx"
+// const arr4  = "xaaabb"
 
-validAnagram(arr3, arr4)//?
+// validAnagram(arr3, arr4)//?
+
+
+function sameFrequency(num1, num2) {
+    if(num1.length !== num2.length) return  false
+    let obj1 = {}
+    let obj2 = {}
+    for(let v of num1.toString()) {
+        obj1[v] === undefined ? obj1[v] = 1 : obj1[v]++ 
+    }
+    obj1
+    for(let v of num2.toString()) {
+        obj2[v] === undefined ? obj2[v] = 1 : obj2[v]++ 
+    }
+    obj2
+    for(const o in obj1) {
+        if (obj1[o] !== obj2[o]) return false
+    }
+    
+    return true;
+}
+
+let num1 = 182
+let num2 = 281
+
+sameFrequency(num1, num2) //?
+
+
+function areThereDuplicates(...str) {
+    if(str.length <= 0) return false
+    let obj1 = {}
+    for(let v of str) {
+        obj1[v] === undefined ? obj1[v] = 1 : obj1[v]++
+    }
+    for(let v of str) {
+        if(obj1[v] > 1) return true
+    }
+    return false
+}
+
+areThereDuplicates(1,2,3,3)//?
