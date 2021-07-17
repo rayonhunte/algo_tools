@@ -23,33 +23,37 @@ function maxSubarraySum(values, num) {
 //maxSubarraySum([4,2,1,6], 1)
 
 
-function minSubArrayLen(arr,  num) {
-    let l = 0
-    let r = 1
-    let minCount = 0
-    let maxSum = 0
-    while(r < arr.length -1) {
-        // if l is max return 1
-        if(arr[l] >= num) return 1
-        //
-        maxSum === 0 ? maxSum = arr[l] + arr[r] : maxSum += arr[r]
-        if(maxSum >= num){   
-            l++ 
-            r = l + 1
-            maxSum = 0
-        } else {
-            minCount++
-            r++
-        }
-        
-    } 
-    return minCount
+function minSubArrayLen(arr,num) {
+   let l = 0
+   let sum = 0
+   let result = Number.MAX_SAFE_INTEGER
+
+   for (let i = 0; i < arr.length; i++) {
+       sum += arr[i]
+       while(sum >= num) {
+           result = Math.min(result, i - l + 1)
+           sum -=arr[l++]
+       }
+
+   }
+   return result === Number.MAX_SAFE_INTEGER ? 0 : result
+}
+minSubArrayLen([2,3,1,2,4,3], 7) //?
+// minSubArrayLen([2,1,6,5,4], 9) //?
+// minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52)//?
+
+function findLongestSubstring(arr) {
+    let left = 0
+    let  count = 0
+    let result = 0
+    for (let i = 1; i < arr.length; i++) {
+       arr[i] //? 
+    }
+    return result
 }
 
-
-// minSubArrayLen([2,3,1,2,4,3], 7) //?
-minSubArrayLen([2,1,6,5,4], 9) //?
-//minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52)//?
-
-
+// findLongestSubstring('') //?
+findLongestSubstring('rithmschool') //?
+//findLongestSubstring('thisisawsome') //?
+//findLongestSubstring('bbbbbbb') //?
 
