@@ -38,22 +38,29 @@ function minSubArrayLen(arr,num) {
    }
    return result === Number.MAX_SAFE_INTEGER ? 0 : result
 }
-minSubArrayLen([2,3,1,2,4,3], 7) //?
+// minSubArrayLen([2,3,1,2,4,3], 7) //?
 // minSubArrayLen([2,1,6,5,4], 9) //?
 // minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52)//?
 
 function findLongestSubstring(arr) {
-    let left = 0
-    let  count = 0
-    let result = 0
-    for (let i = 1; i < arr.length; i++) {
-       arr[i] //? 
+    let l = 0
+    let r = 0
+    let max = 0
+    let obj = {}
+    while(r < arr.length){
+        if(obj[arr[r]]) {
+            delete obj[arr[l]]
+            l++
+        } else {
+            obj[arr[r]] = 1
+            r++
+            max = Math.max(max, Object.keys(obj).length)
+        }
     }
-    return result
+    return max
 }
 
-// findLongestSubstring('') //?
+findLongestSubstring('') //?
 findLongestSubstring('rithmschool') //?
-//findLongestSubstring('thisisawsome') //?
-//findLongestSubstring('bbbbbbb') //?
-
+findLongestSubstring('thisisawsome') //?
+findLongestSubstring('bbbbbbb') //?

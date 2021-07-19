@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/book/literals.ts",
+            "program": "${workspaceFolder}/new/slidewin",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]
