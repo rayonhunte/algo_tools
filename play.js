@@ -97,4 +97,18 @@ const same =  (arr1, arr2) => {
 
 }
 
-same(arr1, arr2) //?
+// same(arr1, arr2) //?
+
+function splitPairs(arr) {
+    if(arr.length < 1) return []
+    for (let i = 0; i < arr.length; i++) {
+        (i % 2) //?
+    }
+
+}
+
+// splitPairs('abcd') //?
+// splitPairs('abc') //?
+// splitPairs('abcdf') //?
+splitPairs('a') //?
+//splitPairs('') //?
