@@ -1,3 +1,4 @@
+"user strict"
 // const nums = [3,2,4]
 // const target = 6
 
@@ -101,14 +102,52 @@ const same =  (arr1, arr2) => {
 
 function splitPairs(arr) {
     if(arr.length < 1) return []
-    for (let i = 0; i < arr.length; i++) {
-        (i % 2) //?
+    // if(arr.length === 1) return [arr[0]+'_']
+    // set pointers
+    let l = 0
+    let r = 1
+    str = []
+    while(r < arr.length){
+            str = str.concat(arr[l]+ arr[r])
+            r += 2
+            l +=2
     }
-
+    if(arr[l]) str = str.concat(arr[l]+'_') 
+    return str     
 }
 
 // splitPairs('abcd') //?
 // splitPairs('abc') //?
 // splitPairs('abcdf') //?
-splitPairs('a') //?
-//splitPairs('') //?
+//  splitPairs('a') //?
+// splitPairs('') //?
+
+function beginningZeros(str) {
+    if(str.length < 1) return 0
+    let count = [] 
+    for(let v of str) {
+        if(v === '0') {count.push(v)}
+        else {
+            break
+        }  
+    }
+    return count.length 
+}
+
+beginningZeros('100')//?  
+beginningZeros('001')//?  
+beginningZeros('100100')//?
+beginningZeros('001001') //?
+beginningZeros('012345679') //?
+beginningZeros('0000') //?
+
+
+// function nearestValue() {
+
+// }
+
+// nearestValue([4, 7, 10, 11, 12, 17], 9) == 10
+// nearestValue([4, 7, 10, 11, 12, 17], 8) == 7
+// nearestValue([4, 8, 10, 11, 12, 17], 9) == 8
+// nearestValue([4, 9, 10, 11, 12, 17], 9) == 9
+// nearestValue([4, 7, 10, 11, 12, 17], 0) == 4

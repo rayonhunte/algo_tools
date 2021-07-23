@@ -87,5 +87,53 @@ function reverse(str){
     return str[str.length-1] + reverse(str.slice(0, -1))  
 }
 
-reverse('awesome') //?
-reverse('rithmschool') //?
+// reverse('awesome') //?
+// reverse('rithmschool') //?
+
+
+function isPalindrome(str) {
+    if (str.length <= 1) return true
+    if(str[0] === str[str.length -1]) {
+        let newStr = str.slice(1)
+        newStr = newStr.slice(0, -1)
+        isPalindrome(newStr)
+    } else {
+        return false
+    }
+   return true
+}
+
+// isPalindrome('awesome') //?
+// isPalindrome('foobar') //? 
+// isPalindrome('tacocat') //?
+// isPalindrome('amanaplanacanalpanama') //?
+// isPalindrome('amanaplanacanalpandemonium') //?
+
+
+const isOdd = val => val % 2 !== 0;
+
+function someRecursive(arr, callBack) {
+    if(arr.length < 1) return false;
+    if(callBack(arr[0]) === true) return true
+    let newArr = arr.slice(1)
+    return someRecursive(newArr, callBack)
+}
+
+// someRecursive([1,2,3,4], isOdd) //?
+// someRecursive([4,6,8,9], isOdd) // ?
+// someRecursive([4,6,8], isOdd) //?
+// someRecursive([4,6,8], val => val > 10); //?
+
+function flatten (arr) {
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+        Array.isArray(arr[i])? newArr = newArr.concat(flatten(arr[i])) : newArr.push(arr[i])
+    }
+    return newArr
+}
+
+
+flatten([1, 2, 3, [4, 5] ]) //?
+// flatten([1, [2, [3, 4], [[5]]]]) //?
+// flatten([[1],[2],[3]]) //?
+// flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) //?
