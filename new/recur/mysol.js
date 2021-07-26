@@ -137,3 +137,134 @@ flatten([1, 2, 3, [4, 5] ]) //?
 // flatten([1, [2, [3, 4], [[5]]]]) //?
 // flatten([[1],[2],[3]]) //?
 // flatten([[[[1], [[[2]]], [[[[[[[3]]]]]]]]]]) //?
+
+function capitalizeFirst (arr) {
+    //return capitalizeFirst(arr.slice(1))
+    let newArray = []
+    function help(arr) {
+        arr.length //?
+        if(arr.length > 0){
+            let newString = arr[0][0].toUpperCase() + arr[0].substring(1)
+            newArray.push(newString)
+            help(arr.slice(1))
+        }
+        return newArray
+    }
+       return  help(arr)
+}
+
+function capitalizeWords (array) {
+    if (array.length === 1) {
+      return [array[0].toUpperCase()];
+    }
+    let res = capitalizeWords(array.slice(0, -1));
+    res.push(array.slice(array.length-1)[0].toUpperCase());
+    return res;
+   
+  }
+
+  function capitalizeFirst (array) {
+    if (array.length === 1) {
+      return [array[0][0].toUpperCase() + array[0].substr(1)];
+    }
+    const res = capitalizeFirst(array.slice(0, -1));
+    const string = array.slice(array.length - 1)[0][0].toUpperCase() + array.slice(array.length-1)[0].substr(1);
+    res.push(string);
+    return res;
+  }
+  
+  // capitalizeFirst(['car','taco','banana']); //?
+
+function nestedEvenSum (obj) {
+    if(Object.keys(obj).length < 1) return 0
+    let sum = 0;
+    for(let o in obj) {
+        typeof obj[o] === 'object' ? sum += nestedEvenSum(obj[o]) : sum += obj[o] % 2 === 0? obj[o] : 0
+    }
+    return sum //?
+}
+var obj1 = {
+    outer: 2,
+    obj: {
+      inner: 2,
+      otherObj: {
+        superInner: 2,
+        notANumber: true,
+        alsoNotANumber: "yup"
+      }
+    }
+  }
+
+var obj2 = {
+    a: 2,
+    b: {b: 2, bb: {b: 3, bb: {b: 2}}},
+    c: {c: {c: 2}, cc: 'ball', ccc: 5},
+    d: 1,
+    e: {e: {e: 2}, ee: 'car'}
+  };
+
+  // nestedEvenSum(obj1) //?
+  // nestedEvenSum(obj2) //?
+
+
+let obj4 = {
+    num: 1,
+    test: [],
+    data: {
+        val: 4,
+        info: {
+            isRight: true,
+            random: 66
+        }
+    }
+}
+
+
+function stringifyNumbers(obj) {
+    newObj = {}
+    for(let s in obj) {
+        if(typeof obj[s]=== 'number') {
+            newObj[s] = obj[s].toString()
+        }
+        else if(typeof obj[s]=== 'object' && !Array.isArray(obj[s])) {
+            newObj[s] = stringifyNumbers(obj[s])
+        } else {
+            newObj[s] = obj[s]
+        }
+
+    }
+    return newObj
+
+}
+// stringifyNumbers(obj4) //?
+// stringifyNumbers(obj5) //?
+
+const obj = {
+    stuff: "foo",
+    data: {
+        val: {
+            thing: {
+                info: "bar",
+                moreInfo: {
+                    evenMoreInfo: {
+                        weMadeIt: "baz"
+                    }
+                }
+            }
+        }
+    }
+}
+
+function collectStrings(obj) {
+    let newArr= []
+    for(o in obj) {
+       if(typeof  obj[o] === 'object') {
+           return  newArr.concat( collectStrings(obj[o]))//?
+       } else  {
+            newArr = newArr.concat(obj[o])
+       }
+    }
+    return newObj //?
+}
+
+collectStrings(obj) //?
