@@ -26,8 +26,6 @@ function sortBubble(arr) {
     }
     return arr
 }
-
 let arr = [1,5,7,8,10,3]
+// sortBubble(arr) //?
 
-
-sortBubble(arr) //?
