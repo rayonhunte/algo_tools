@@ -11,7 +11,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/new/slidewin",
+            "program": "${workspaceFolder}/new/sort/quick.js",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ]

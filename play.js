@@ -151,3 +151,55 @@ beginningZeros('0000') //?
 // nearestValue([4, 8, 10, 11, 12, 17], 9) == 8
 // nearestValue([4, 9, 10, 11, 12, 17], 9) == 9
 // nearestValue([4, 7, 10, 11, 12, 17], 0) == 4
+
+
+function simpleArraySum(ar) {
+    // Write your code here
+    let sum = 0;
+    if (ar.length === 0) return sum
+    return sum = ar[0] + simpleArraySum(ar.slice(1))
+}
+// simpleArraySum([4, 7, 10, 11, 12, 17]) //?
+
+
+function compareTriplets(a, b) {
+    // Write your code here
+    if(a.length !== b.length) [0,0]
+    let score = [0,0]
+    for (let i = 0; i < a.length; i++) {
+        score[0] += a[i] > b[i] && a[i] !== b[i]? 1 : 0
+        score[1] += a[i] < b[i] && a[i] !== b[i]? 1 : 0
+    }
+    return score
+}
+
+// compareTriplets([1,5,9],[1,6,9]) //?
+
+function diagonalDifference(arr) {
+    // Write your code here
+    let lSum = 0;
+    let rSum = 0;
+    let back = arr.length -1
+    for (let i = 0; i < arr.length; i++) {
+        lSum += arr[i][i]  //?
+        rSum += arr[i][back]//?
+        back--
+    }
+    lSum 
+    rSum
+    return Math.abs(lSum - rSum)
+}
+
+let someD = [
+    [11,2,4],
+    [4,5,6],
+    [10,5,-12]
+]
+
+let someB = [
+    [1,2,3],
+    [4,5,6],
+    [9,8,9]
+]
+
+diagonalDifference(someB) //?

@@ -146,8 +146,19 @@ function reverse(x: number): any {
 };
 
 
-reverse(-123) //?
-reverse(1534236469) //?
+// reverse(-123) //?
+// reverse(1534236469) //?
 // reverse(0) //?
+
+function sumNumbers(test: string): number {
+    // your code here
+    test
+
+    return 0;
+}
+
+
+// sumNumbers("don't be10 suspicious 10 12")
+sumNumbers('5 plus 6 is')
 
 
